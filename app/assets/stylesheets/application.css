@@ -12,3 +12,10 @@
  *= require styles
  *= require menu
  */
+
+ @font-face {
+   font-family: 'Trade Winds';
+   font-style: normal;
+   font-weight: 400;
+   src: url(/P7L1H4TWVDNJivDGg_--QLrIa-7acMAeDBVuclsi6Gc.woff) format('woff');
+ }
