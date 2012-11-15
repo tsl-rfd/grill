@@ -7,6 +7,17 @@ body {
   width: 960px; 
 }
 
+form {
+  margin: 24px 0px;
+  
+  .field {
+    margin: 12px 0px;
+  }
+}
+
+p {
+  margin: 6px 0px;
+}
 .container { 
   background: black;
   padding: 24px;

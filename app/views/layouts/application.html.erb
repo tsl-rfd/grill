@@ -23,6 +23,7 @@
             <li><%= link_to 'Sign up', new_user_url %></li>
             <li><%= link_to 'Sign in', login_url %></li>
           <% else %>
+            <li><%= link_to 'My Profile', user_url(session[:user_id]) %></li>
             <li><%= link_to 'Sign out', logout_url %></li>
           <% end %>
         </ul>
@@ -30,6 +31,10 @@
     </header>
   
     <div class="content">
+      <% if flash[:notice] %>
+        <p id="notice"><%= flash[:notice] %></p>
+      <% end %>
+      
       <%= yield %>
     </div>
     
