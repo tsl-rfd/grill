@@ -42,6 +42,10 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(params[:reservation])
     current_user = User.find_by_id(session[:user_id])
+    if current_user.nil?
+      redirect_to login_url, notice: "Please sign in first."
+    end
+
     @reservation.user = current_user
     
     respond_to do |format|
