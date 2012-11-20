@@ -1,5 +1,4 @@
 Category.destroy_all
-Item.destroy_all
 
 menu_categories = { "Starters" => [[7, 'Tiny Hot Dogs'], [5, 'Onion Strands'], [6, 'Flatbread']], 
   "Entrees" => [[27, 'Steak'], [17, 'Aha Tuna Plate'], [22, 'Chicken Caesar Salad']], 

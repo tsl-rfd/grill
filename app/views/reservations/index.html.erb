@@ -11,6 +11,8 @@
     <th></th>
   </tr>
 
+<%= paginate @reservations %>
+
 <% @reservations.each do |reservation| %>
   <tr>
     <td><%= reservation.date %></td>

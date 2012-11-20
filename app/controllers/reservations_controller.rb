@@ -1,13 +1,25 @@
 class ReservationsController < ApplicationController
+  
+  before_filter :require_admin, :only => :index
+  
+  def require_admin
+    redirect_to root_url unless @user && @user.admin?
+    
+    # if @user.nil? || !@user.admin? 
+    #   redirect_to root_url
+    # end
+  end
+
   # GET /reservations
   # GET /reservations.json
   def index
-    @reservations = Reservation.all
+    @reservations = Reservation.page(params[:page]).per(3)
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @reservations }
     end
+    
   end
 
   # GET /reservations/1
