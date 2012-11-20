@@ -1,5 +1,9 @@
 Grill::Application.routes.draw do
 
+  resources :order_items
+
+  resources :orders
+
   resources :reservations
 
   get "sessions/new", :as => 'login'

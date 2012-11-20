@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121115231133) do
+ActiveRecord::Schema.define(:version => 20121120164604) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -28,6 +28,26 @@ ActiveRecord::Schema.define(:version => 20121115231133) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "order_items", :force => true do |t|
+    t.integer  "order_id"
+    t.integer  "item_id"
+    t.integer  "qty"
+    t.text     "note"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "order_items", ["order_id"], :name => "index_order_items_on_order_id"
+
+  create_table "orders", :force => true do |t|
+    t.integer  "user_id"
+    t.boolean  "paid",       :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "orders", ["user_id"], :name => "index_orders_on_user_id"
+
   create_table "reservations", :force => true do |t|
     t.date     "date"
     t.integer  "hour"
@@ -41,9 +61,10 @@ ActiveRecord::Schema.define(:version => 20121115231133) do
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.integer  "points",          :default => 0
+    t.boolean  "admin",           :default => false
   end
 
 end

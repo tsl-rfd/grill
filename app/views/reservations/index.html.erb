@@ -1,4 +1,4 @@
-<h1>Listing reservations</h1>
+<h1>Who's Coming?</h1>
 
 <table>
   <tr>
@@ -14,8 +14,8 @@
 <% @reservations.each do |reservation| %>
   <tr>
     <td><%= reservation.date %></td>
-    <td><%= reservation.hour %></td>
-    <td><%= reservation.user_id %></td>
+    <td><%= reservation.hour %>:00</td>
+    <td><%= reservation.user.name %></td>
     <td><%= reservation.party_size %></td>
     <td><%= link_to 'Show', reservation %></td>
     <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
